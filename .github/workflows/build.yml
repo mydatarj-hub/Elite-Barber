@@ -18,21 +18,21 @@ jobs:
         with:
           python-version: '3.11'
 
-      # تثبيت Flutter
+      # تثبيت Flutter الإصدار الصحيح المطلوب من Flet
       - name: Install Flutter
         uses: subosito/flutter-action@v2
         with:
-          flutter-version: '3.24.0'
+          flutter-version: '3.41.4'
 
       # تثبيت Flet
       - name: Install Flet
         run: pip install flet
 
-      # بناء APK
+      # بناء APK بدون أي تفاعل
       - name: Build APK
-        run: flet build apk --verbose
+        run: flet build apk --verbose --no-prompt
 
-      # رفع APK
+      # رفع APK مهما كان اسمه
       - name: Upload APK
         uses: actions/upload-artifact@v4
         with:
